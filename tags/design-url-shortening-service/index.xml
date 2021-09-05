@@ -10,7 +10,7 @@
     </image>
     <generator>Hugo -- gohugo.io</generator><atom:link href="https://lifesucks.dev/tags/design-url-shortening-service/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Cách thiết kế 1 dịch vụ URL Shortening service giống như TinyURL</title>
+      <title>Bài 2: Cách thiết kế 1 dịch vụ URL Shortening service giống như TinyURL</title>
       <link>https://lifesucks.dev/posts/grokking-system-design-interviews/designing-a-url-shortening-service-like-tinyurl/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       

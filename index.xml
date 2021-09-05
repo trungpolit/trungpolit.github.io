@@ -94,16 +94,16 @@
     
     
     <item>
-      <title>Các bước để trả lời được phỏng vấn trong buổi System Design Interviews</title>
+      <title>Bài 1: Các bước để trả lời được phỏng vấn System Design Interviews</title>
       <link>https://lifesucks.dev/posts/grokking-system-design-interviews/system-design-interviews-a-step-by-step-guide/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://lifesucks.dev/posts/grokking-system-design-interviews/system-design-interviews-a-step-by-step-guide/</guid>
-      <description>Các bước thực hiện để phân tích thiết kế hệ thống</description>
+      <description>Các bước thực hiện để phân tích thiết kế hệ thống System Design</description>
     </item>
     
     <item>
-      <title>Cách thiết kế 1 dịch vụ URL Shortening service giống như TinyURL</title>
+      <title>Bài 2: Cách thiết kế 1 dịch vụ URL Shortening service giống như TinyURL</title>
       <link>https://lifesucks.dev/posts/grokking-system-design-interviews/designing-a-url-shortening-service-like-tinyurl/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
