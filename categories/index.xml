@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on LifeSucks</title>
+    <link>https://lifesucks.dev/categories/</link>
+    <description>Recent content in Categories on LifeSucks</description>
+    <image>
+      <url>https://lifesucks.dev/papermod-cover.png</url>
+      <link>https://lifesucks.dev/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://lifesucks.dev/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>syntax</title>
+      <link>https://lifesucks.dev/categories/syntax/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://lifesucks.dev/categories/syntax/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>themes</title>
+      <link>https://lifesucks.dev/categories/themes/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://lifesucks.dev/categories/themes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>System Design</title>
+      <link>https://lifesucks.dev/categories/system-design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lifesucks.dev/categories/system-design/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
