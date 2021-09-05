@@ -1,6 +1,6 @@
 ---
 author: "telion"
-title: "Cách thiết kế 1 dịch vụ URL Shortening service giống như TinyURL"
+title: "Bài 2: Cách thiết kế 1 dịch vụ URL Shortening service giống như TinyURL"
 description: "Chúng ta sẽ cùng nhau thiết kế 1 dịch vụ URL Shortening service giống như TinyURL. Dịch vụ này sẽ cung cấp các định danh ngắn gọn dùng để điều hướng tới các URLs dài"
 tags: ["system design interviews","Design URL Shortening service","Design TinyURL"]
 categories: ["System Design"]
