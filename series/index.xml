@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Series on LifeSucks</title>
+    <link>https://lifesucks.dev/series/</link>
+    <description>Recent content in Series on LifeSucks</description>
+    <image>
+      <url>https://lifesucks.dev/papermod-cover.png</url>
+      <link>https://lifesucks.dev/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 20 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://lifesucks.dev/series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PaperMod</title>
+      <link>https://lifesucks.dev/series/papermod/</link>
+      <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://lifesucks.dev/series/papermod/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Themes Guide</title>
+      <link>https://lifesucks.dev/series/themes-guide/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://lifesucks.dev/series/themes-guide/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Grokking system design interviews</title>
+      <link>https://lifesucks.dev/series/grokking-system-design-interviews/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lifesucks.dev/series/grokking-system-design-interviews/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
