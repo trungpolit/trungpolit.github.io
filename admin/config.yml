@@ -1,0 +1,25 @@
+backend:
+  name: github
+  branch: main
+  repo: trungpolit/trungpolit.github.io
+  api_root: https://api.github.com
+  auth_endpoint: auth
+publish_mode: editorial_workflow
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+collections:
+  - name: "system-designs" # Used in routes, e.g., /admin/collections/blog
+    label: "Grokking system design interviews" # Used in the UI
+    folder: "content/posts/grokking-system-design-interviews" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Author", name: "author", widget: "string", default: "telion"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Categories", name: "categories", widget: "list"}
+      - {label: "Series", name: "series", widget: "list"}
+      - {label: "ShowToc", name: "ShowToc", widget: "boolean", default: true}
+      - {label: "ShowBreadCrumbs", name: "ShowBreadCrumbs", widget: "boolean", default: true}
+      - {label: "Body", name: "body", widget: "markdown"}
