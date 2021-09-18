@@ -1,11 +1,5 @@
 backend:
-  name: github
-  branch: main
-  repo: trungpolit/trungpolit.github.io
-  api_root: https://api.github.com
-  auth_endpoint: login/oauth/authorize
-  site_domain: lifesucks.dev
-  base_url: https://github.com
+  name: git-gateway
 publish_mode: editorial_workflow
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
