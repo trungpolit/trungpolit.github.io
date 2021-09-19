@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Design photo-sharing service on LifeSucks</title>
+    <link>https://lifesucks.dev/tags/design-photo-sharing-service/</link>
+    <description>Recent content in Design photo-sharing service on LifeSucks</description>
+    <image>
+      <url>https://lifesucks.dev/papermod-cover.png</url>
+      <link>https://lifesucks.dev/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://lifesucks.dev/tags/design-photo-sharing-service/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bài 4: Cách thiết kế  Instagram</title>
+      <link>https://lifesucks.dev/posts/grokking-system-design-interviews/designing-instagram/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lifesucks.dev/posts/grokking-system-design-interviews/designing-instagram/</guid>
+      <description>Chúng ta sẽ cùng nhau thiết kế 1 dịch vụ chia sẻ photo giống như Instagram, nơi mà người dùng users có thể tải lên photos và chia sẻ chúng với những người khác</description>
+    </item>
+    
+  </channel>
+</rss>

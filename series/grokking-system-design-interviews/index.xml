@@ -29,10 +29,10 @@
     
     <item>
       <title>Bài 4: Cách thiết kế  Instagram</title>
-      <link>https://lifesucks.dev/posts/grokking-system-design-interviews/2021-09-12-b%C3%A0i-4-c%C3%A1ch-thi%E1%BA%BFt-k%E1%BA%BF-instagram/</link>
+      <link>https://lifesucks.dev/posts/grokking-system-design-interviews/designing-instagram/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://lifesucks.dev/posts/grokking-system-design-interviews/2021-09-12-b%C3%A0i-4-c%C3%A1ch-thi%E1%BA%BFt-k%E1%BA%BF-instagram/</guid>
+      <guid>https://lifesucks.dev/posts/grokking-system-design-interviews/designing-instagram/</guid>
       <description>Chúng ta sẽ cùng nhau thiết kế 1 dịch vụ chia sẻ photo giống như Instagram, nơi mà người dùng users có thể tải lên photos và chia sẻ chúng với những người khác</description>
     </item>
     
