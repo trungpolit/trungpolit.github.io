@@ -94,6 +94,15 @@
     
     
     <item>
+      <title>Bài 13: Cách thiết kế  Facebook Newsfeed</title>
+      <link>https://lifesucks.dev/posts/grokking-system-design-interviews/designing-facebooks-newsfeed/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lifesucks.dev/posts/grokking-system-design-interviews/designing-facebooks-newsfeed/</guid>
+      <description>Chúng ta sẽ cùng nhau thiết kế  Facebook Newsfeed</description>
+    </item>
+    
+    <item>
       <title>Bài 1: Các bước để trả lời được phỏng vấn System Design Interviews</title>
       <link>https://lifesucks.dev/posts/grokking-system-design-interviews/system-design-interviews-a-step-by-step-guide/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
