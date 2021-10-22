@@ -18,6 +18,7 @@ Với bất cứ hệ thống mạng xã hội nào mà bạn thiết kế như 
 ## 2. Yêu cầu Requirements và mục tiêu Goals của hệ thống
 
 Chúng ta sẽ thiết kế 1 hệ thống newsfeed cho Facebook theo các yêu cầu sau:
+
 **Yêu cầu về  mặt tính năng:**
 
 1. Newsfeed cần được tạo ra dựa trên các bài posts từ những người, trang pages, groups mà người dùng user theo dõi follow.
@@ -142,3 +143,32 @@ Chúng ta có thể lưu trữ FeedItemIDs trong 1 cấu trúc data structure gi
 **Bao nhiêu feed items mà ta nên lưu trữ trong memory cho feed của 1 user?** Thời điểm khởi đầu, chúng ta có thể quyết định lưu 500 feed items cho mỗi user, nhưng con số này có thể được điều chỉnh sau đó dựa trên mức sử dụng. Ví dụ, nếu ta giả định 1 page của 1 user feed sẽ có 20 bài posts và đa số users không bao giờ duyệt trên 10 pages feed của họ, chúng ta có thể quyết định chỉ lưu trữ 200 posts trên mỗi user. Với bất cứ user người mà muốn xem nhiều bài posts hơn (nhiều hơn những gì lưu trong memory), chúng ta có thể truy vấn chúng từ backend servers.
 
 **Chúng ta nên tạo (hay giữ trong memory) newsfeed cho tất cả users?** Có rất nhiều users không đăng nhập 1 cách thường xuyên. Đây là 1 vài thứ mà ta có thể làm để xử lý điều này; 1) 1 cách tiếp cận hiển nhiên nhất là sử dụng 1 LRU cache để xóa users khỏi memory do họ không truy cập newsfeed của họ trong 1 khoảng thời gian dài. 2) 1 cách tiếp cận thông minh hơn là tìm ra kiểu đăng nhập của users để tạo ra các newsfeed của họ trước, ví dụ thời điểm nào trong ngày 1 user hoạt động và những ngày nào trong tuần mà user có thể truy cập newsfeed của họ?
+
+Giờ, chúng ta sẽ bàn về 1 số các giải pháp về vấn đề “live updates”.
+
+**b. Các xuất bản Feed publishing:**
+Tiến trình xuất bản 1 post tới tất cả những người theo dõi followers được gọi là fanount. Tương tự vậy thì giải pháp push được gọi là fanout-on-write, trong khi giải pháp pull được gọi là fanout-on-load. Chúng ta sẽ đề cập tới các lựa chọn khác nhau dùng để xuất bản feed data tới users.
+
+1. "Pull" model hay Fan-out-on-load: là phương thức liên quan tới việc giữ tất cả các feed data gần đây trong memory, do đó users có thể pull nó từ server bất cứ khi nào họ cần. Clients có thể pull feed data 1 cách thường xuyên hay thủ công bất cứ khi nào họ cần. Các vấn đề xảy ra với giải pháp này là a) Dữ liệu mới có thể không hiện thị ra cho users cho tới khi họ thực hiện 1 pull request, b) Rất khó để làm mượt mà 1 pull request, khi đại đa số pull requests sẽ trả về 1 kết quả rỗng khi không có dữ liệu mới, điều này sẽ gây lãng phí tài nguyên.
+2. "Push" model hay Fan-out-on-write: Trong 1 hệ thống push system, bất cứ khi nào 1 user xuất bản 1 bài post, ta có thể ngay lập tức push bài post này tới tất cả followers. Ưu điểm là khi tìm nạp feed, bạn không cần duyệt qua tất cả danh sách các friends và lấy feeds của mỗi người trong số họ. Điều này sẽ giảm đáng kể các read operations. Để xử lý theo cách này hiệu quả, users phải dữ 1 Long Poll request với server để nhận về các cập nhật updates. 1 vấn đề có thể phát sinh với giải pháp này là khi 1 user có hàng triệu người theo dõi followers thì server phải push updates tới rất nhiều người.
+3. Hybrid: 1 giải pháp khác là kết hợp cả 2 giải pháp trên. Ta có thể dừng push các bài posts từ những users có lượng lớn người theo dõi followers và chỉ push data với những user có lượng theo dõi hàng trăm hay hàng nghìn người. Với những users nổi tiếng, ta có thể để các người theo dõi followers pull các cập nhật updates. Do xử lý push operation thực sự là rất đắt đối với những users nổi tiếng có nhiều followers hay friends, nên việc tắt fanout cho những người này, ta có thể tiết kiệm được lượng lớn tài nguyên. 1 giải pháp khác, khi 1 user xuất bản 1 bài post, ta có thể giới hạn fanout chỉ với những người bạn đang online.
+
+**Bao nhiêu feed items mà ta có thể trả về client trong mỗi request?** Chúng ta nên giới hạn max số lượng items mà 1 user có thể lấy về trong 1 request (giả sử là 20). Nhưng, ta có thể để client định nghĩa bao nhiêu phần tử feed items mà họ muốn lấy về ở mỗi request, user có thể lấy về số lượng posts khác nhau phụ thuộc vào loại thiết bị (mobile vs. desktop).
+
+**Chúng ta có phải nên luôn thông báo tới users nếu có bài post mới vừa đăng trong newsfeed của họ?** Điều này khá hữu dụng đối với users khi có thể nhận được ngay thông báo khi có dữ liệu mới xuất hiện. Tuy nhiên, trên có thiết bị mobile, khi việc sử dụng data là thật sự đắt, thì điều này có thể gây ra việc tiêu tốn băng thông không cần thiết. Do đó, ít nhất là trên các thiết bị mobile, ta có thể lựa chọn không push data, và thay vào đó để user thực hiện “Pull to Refresh” để lấy về các posts mới.
+
+## 8. Feed Ranking
+
+Cách dễ dàng nhất để xếp hạng posts trong 1 newsfeed là dựa vào thời gian tạo posts, nhưng thuật toán xếp hạng ngày nay thực hiện nhiều thứ hơn để đảm bảo các posts quan trọng được xếp hạng cao hơn. ý tưởng về thuật toán sắp xếp ở mức high level đầu tiên là lựa chọn các tín hiệu để nhận biết 1 post là quan trọng và sau đó tìm ra cách để kêt hợp chúng để tính toán ra ranking score.
+
+Để cụ thể hơn, chúng ta có thể lựa chọn 1 vài đặc tính phù hợp để tìm ta tính quan trọng của feed item. Ví dụ như số lượng likes, comments, shares, thời điểm update, post chứa images/videos, ...và sau đó, score có thể tính toán bằng cách sử dụng các đặc tính này. Điều này nói chung là đủ cho 1 hệ thống xếp hạng đơn giản. 1 Hệ thống xếp hạng tốt hơn có thể tự cải thiện đáng kể bằng cách liên tục đánh giá xem chúng ta có đang đạt được tiến bộ về mức độ gắn bó, giữ chân người dùng, doanh thu quảng cáo, v.v.
+
+## 9. Data Partitioning
+
+**a. Sharding posts và metadata:**
+
+Do ta có lượng lớn các bài posts mới mỗi ngày và tải read thực sự rất cao, ta cần phân tán data trên nhiều server do ta cần read/write 1 cách hiệu quả. Để sharding databases dùng để lưu trữ posts và metadata của chúng, ta có thể thiết kế tương tự giống bài "Designing Twitter".
+
+**b. Sharding feed data:**
+
+Đối với feed data, đang được lưu trữ trong memory, ta có thể phân tán nó dựa vào UserID. Ta có thể lưu trữ tất cả các dữ liệu của 1 user trên 1 server. Khi thực hiện lưu trữ, ta sẽ truyền UserID vào hash function để map user vào 1 cache server mà ta dùng để lưu trữ các user’s feed objects. Cũng vậy, đối với bất kỳ 1 user nào đó, do ta không kỳ vọng lưu quá 500 FeedItemIDs, do đó ta sẽ không rơi vào hoàn cảnh khi mà feed data của 1 user không chứa vừa trên 1 server. Để lấy về feed của 1 user, ta sẽ luôn luôn truy vấn trên chỉ 1 server.
